@@ -1,0 +1,4 @@
+rootProject.name = "MVVMBaseDemo"
+include ':app'
+include ':module_common:lib_utils'
+include ':module_common:lib_base'
