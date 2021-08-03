@@ -39,7 +39,7 @@ open class BaseHttpException(val errorCode: Int, val errorMessage: String, val r
  */
 class ServerCodeBadException(errorCode: Int, errorMessage: String) : BaseHttpException(errorCode, errorMessage, null) {
 
-    constructor(bean: ResultWrap<*>) : this(bean.code, bean.msg!!)
+    constructor(bean: ResultWrap<*>) : this(bean.errorCode, bean.errorMsg!!)
 
 }
 

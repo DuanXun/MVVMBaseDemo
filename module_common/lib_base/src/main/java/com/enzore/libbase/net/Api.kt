@@ -1,6 +1,8 @@
 package com.dawn.kotlinbasedemo.http
 
 import com.enzore.libbase.BuildConfig
+import com.enzore.libbase.net.CommonService
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -11,7 +13,7 @@ fun <T> getApi(url:String,apiClazz:Class<T>):Lazy<T>{
     return lazy {
         Retrofit.Builder()
             .baseUrl(url)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .client(getOkHttpClient())
             .build().create(apiClazz)
     }
@@ -30,4 +32,6 @@ private fun getOkHttpClient(): OkHttpClient {
     }
     return builder.build()
 }
+
+val commonApi by getApi("https://www.wanandroid.com/",CommonService::class.java)
 

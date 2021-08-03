@@ -7,8 +7,8 @@ package com.enzore.libbase.net.vo
  */
 open class ResultWrap<out T> {
     val data: T?=null
-    open var code: Int = -1
-    open var msg: String? = null
+    open var errorCode: Int = -1
+    open var errorMsg: String? = null
     val extra: String? = null
     val success: Boolean? = null
     open var exception: Exception?=null
